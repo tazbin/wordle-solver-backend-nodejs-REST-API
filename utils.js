@@ -2,7 +2,7 @@ const fs = require('fs');
 
 readAllWords = () => {
     try {  
-        data = fs.readFileSync('array.txt', 'utf8');
+        data = fs.readFileSync('data.txt', 'utf8');
         data = data.split(", ");
 
         return data;
@@ -12,9 +12,11 @@ readAllWords = () => {
     }
 }
 
-getARandomWord = (arrayToGet, max) => {
-    index = (Math.floor(Math.random() * max));
+getARandomWord = (arrayToGet) => {
+
+    index = (Math.floor(Math.random() * arrayToGet.length));
     return arrayToGet[index];
+
 }
 
 guessNextWord = (word, arr) => {
@@ -51,7 +53,7 @@ guessNextWord = (word, arr) => {
     if( dataArray.length == 0 ) {
         console.log('No word found!')
     } else {
-        return getARandomWord(dataArray, dataArray.length);
+        return getARandomWord(dataArray);
     }
 
 };
